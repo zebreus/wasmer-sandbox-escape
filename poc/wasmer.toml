@@ -1,0 +1,12 @@
+[package]
+name = "private/stock-cli-native-jit-marker"
+version = "0.0.0"
+description = "Private benign Wasmer LLVM native-control proof"
+
+[[module]]
+name = "poc"
+source = "poc.wasm"
+
+[[command]]
+name = "poc"
+module = "poc"

