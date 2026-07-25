@@ -13,3 +13,4 @@ ENV WASMER_CACHE_DIR="/root/.wasmer/cache"
 
 # copy the poc into the container
 COPY poc /poc
+COPY poc4 /poc4
