@@ -25,6 +25,10 @@ As this is binary exploitation, it depends a bit on the host machine and the ver
 
 See link:poc/poc.wat[poc.wat] for more details.
 
-== More vulnerabilities
+== More findings
 
-This is not the only vulnerability of that kind my agents found, just the first one where I produced a nice poc. 
+The findings in this repo are all relatively similar and based on the same vulnerability, but at different stages of execution, I think.
+
+`poc` and `poc4` are relatively similar.
+
+`poc3` is also based on the same vulnerability, but at link time.
