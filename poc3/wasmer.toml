@@ -1,0 +1,17 @@
+[package]
+entrypoint = "stock-cli-native-proof"
+
+[fs]
+"/" = "./fs"
+
+[[module]]
+name = "main"
+source = "./modules/main"
+
+[[command]]
+name = "stock-cli-native-proof"
+module = "main"
+runner = "https://webc.org/runner/wasi"
+
+[command.annotations.wasi]
+atom = "main"
